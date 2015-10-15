@@ -56,4 +56,4 @@ _________________________
 
 # Credits
 
-Inspired by and based of https://github.com/aubreypwd/wordpress-themereview-vvv
+Inspired by and based on https://github.com/aubreypwd/wordpress-themereview-vvv
