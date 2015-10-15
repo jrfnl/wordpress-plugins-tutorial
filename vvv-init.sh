@@ -90,16 +90,17 @@ PHP
 	# **
 
 	# Best Practices Demo Plugin
+	cd /srv/www/wp-tutorial/htdocs/wp-content/plugins
 	printf "\nCloning Demo Quotes (plugin), see https://github.com/jrfnl/wp-plugin-best-practices-demo\n"
-	git clone -b master https://github.com/jrfnl/wp-plugin-best-practices-demo.git "/wp-content/plugins/jrfwpt-demo-quotes"
+	git clone -b master https://github.com/jrfnl/wp-plugin-best-practices-demo.git "jrfwpt-demo-quotes"
 
 	printf "\nCloning some plugins we can improve\n"
-	git clone -b master https://github.com/oscitasthemes/Easy-Bootstrap-Shortcode.git "/wp-content/plugins/jrfwpt-easy-bootstrap-shortcode"
-	git clone -b master https://github.com/minimus/wp-copyrighted-post.git "/wp-content/plugins/jrfwpt-copyrighted-post"
-	git clone -b master https://github.com/bennettmcelwee/Search-Meter.git "/wp-content/plugins/jrfwpt-search-meter"
-	git clone -b master https://github.com/webvitaly/login-logout.git "/wp-content/plugins/jrfwpt-login-logout"
+	git clone -b master https://github.com/oscitasthemes/Easy-Bootstrap-Shortcode.git "jrfwpt-easy-bootstrap-shortcode"
+	git clone -b master https://github.com/minimus/wp-copyrighted-post.git "jrfwpt-copyrighted-post"
+	git clone -b master https://github.com/bennettmcelwee/Search-Meter.git "jrfwpt-search-meter"
+	git clone -b master https://github.com/webvitaly/login-logout.git "jrfwpt-login-logout"
 
-	cd ..
+	cd /srv/www/wp-tutorial/
 
 else
 
