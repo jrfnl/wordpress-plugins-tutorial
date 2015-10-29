@@ -1,6 +1,6 @@
 # A WordPress Plugin Developers VVV
 
-This is an [auto-sitesetup](https://github.com/Varying-Vagrant-Vagrants/VVV/wiki/Auto-site-Setup) designed to be used with [Varying Vagrants Vagrant](https://github.com/Varying-Vagrant-Vagrants/VVV) for developing plugins.
+This is an [auto-site setup](https://github.com/Varying-Vagrant-Vagrants/VVV/wiki/Auto-site-Setup) designed to be used with [Varying Vagrants Vagrant](https://github.com/Varying-Vagrant-Vagrants/VVV) for developing plugins.
 
 ## To get started:
 
@@ -12,7 +12,7 @@ This is an [auto-sitesetup](https://github.com/Varying-Vagrant-Vagrants/VVV/wiki
 
 Perhaps a cup of tea or coffee now? The provisioning may take a while.
 
-Then you can visit [http://wptutorial.dev](http://wptutorial.dev) to start developing plugins.
+Then you can visit [http://wptutorial.dev/](http://wptutorial.dev/) to start developing plugins.
 
 ## To start over (clean development environment):
 
