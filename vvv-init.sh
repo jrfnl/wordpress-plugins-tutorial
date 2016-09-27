@@ -97,6 +97,7 @@ PHP
 	fi
 	wp plugin activate log-deprecated-notices --allow-root
 
+	wp plugin install log-deprecated-notices-extender  --activate --allow-root
 	wp plugin install log-viewer  --activate --allow-root
 	wp plugin install p3-profiler --allow-root
 	wp plugin install piglatin --allow-root
