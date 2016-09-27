@@ -132,6 +132,10 @@ else
 		# DON'T update the git repos from WP.org!
 		wp plugin update --all --allow-root
 
+		# Update Themes from WP.org
+		printf "Updating themes which need updating from WP.org...\n"
+		wp theme update --all --allow-root
+
 	fi
 
 	cd ..
