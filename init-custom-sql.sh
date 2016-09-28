@@ -22,19 +22,19 @@ fi
 echo "Writing custom sql commands into /srv/database/init-custom.sql"
 if grep -q "my_database_name" /srv/database/init-custom.sql; then
     # Perform replacements.
-    sed -i "s/my_database_name/wordpress_plugindev/g" /srv/database/init-custom.sql
+    sed -i "s/my_database_name/wordpress_tutorial/g" /srv/database/init-custom.sql
     sed -i "s/thisuser/wp/g" /srv/database/init-custom.sql
     sed -i "s/thatpass/wp/g" /srv/database/init-custom.sql
     echo " * Custom sql commands were succesfully added."
 else
 	# If our DB name already exists into init-custom.sql, the we do nothing.
-    if grep -q "wordpress_plugindev" /srv/database/init-custom.sql; then
+    if grep -q "wordpress_tutorial" /srv/database/init-custom.sql; then
     	echo " * /srv/database/init-custom.sql was already set up."
     # If our DB name does not exist into init-custom.sql, then we add our
     # custom sql commands to the end of the file.
     else
-    	echo "CREATE DATABASE IF NOT EXISTS \`wordpress_plugindev\`;" >> /srv/database/init-custom.sql
-    	echo "GRANT ALL PRIVILEGES ON \`wordpress_plugindev\`.* TO 'wp'@'localhost' IDENTIFIED BY 'wp';" >> /srv/database/init-custom.sql
+    	echo "CREATE DATABASE IF NOT EXISTS \`wordpress_tutorial\`;" >> /srv/database/init-custom.sql
+    	echo "GRANT ALL PRIVILEGES ON \`wordpress_tutorial\`.* TO 'wp'@'localhost' IDENTIFIED BY 'wp';" >> /srv/database/init-custom.sql
     	echo " * Custom sql commands were succesfully added."
     fi
 fi
