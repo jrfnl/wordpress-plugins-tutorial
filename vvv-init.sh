@@ -47,7 +47,7 @@ PHP
 	wp core install --url=wptutorial.dev --title="A WordPress Plugin Developers VVV" --admin_user=admin --admin_password=password --admin_email=changme@changeme.com --allow-root
 
 	# **
-	# Installing Developer Plugins for WP.org
+	# Installing Developer Plugins from WP.org
 	# **
 
 	printf 'Installing Developer Plugins...\n'
@@ -57,8 +57,10 @@ PHP
 	wp plugin install debug-bar-constants --allow-root
 	wp plugin install debug-bar-cron  --activate --allow-root
 	wp plugin install debug-bar-extender  --activate --allow-root
+	wp plugin install debug-bar-localization --allow-root
 	wp plugin install debug-bar-list-dependencies --allow-root
 	wp plugin install tdd-debug-bar-post-meta --allow-root
+	wp plugin install debug-bar-plugin-activation  --activate --allow-root
 	wp plugin install debug-bar-post-types  --activate --allow-root
 	wp plugin install debug-bar-query-count-alert --allow-root
 	wp plugin install debug-bar-query-tracer --allow-root
@@ -70,6 +72,7 @@ PHP
 	wp plugin install debug-bar-sidebars-widgets --allow-root
 	wp plugin install debug-bar-slow-actions --allow-root
 	wp plugin install debug-bar-super-globals --allow-root
+	wp plugin install debug-bar-taxonomies  --allow-root
 	#wp plugin install debug-bar-template-trace --allow-root # No longer in WP repo... ?
 	wp plugin install debug-bar-transients --allow-root
 	wp plugin install heartbeat-control --allow-root
@@ -97,6 +100,7 @@ PHP
 	fi
 	wp plugin activate log-deprecated-notices --allow-root
 
+	wp plugin install log-deprecated-notices-extender  --activate --allow-root
 	wp plugin install log-viewer  --activate --allow-root
 	wp plugin install p3-profiler --allow-root
 	wp plugin install piglatin --allow-root
