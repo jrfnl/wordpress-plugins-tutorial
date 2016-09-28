@@ -74,10 +74,29 @@ PHP
 	wp plugin install debug-bar-transients --allow-root
 	wp plugin install heartbeat-control --allow-root
 	wp plugin install pmc-benchmark --allow-root
-	wp plugin install demo-data-creator  --activate --allow-root
+
+	wp plugin install demo-data-creator --allow-root
+	# Fix PHP4 constructor in the Demo Data Creator plugin.
+	echo "Removing errors from the Demo Data Creator plugin."
+	if [[ -f /srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/plugin-register.class.php ]]; then
+		sed -i -e 's/function Plugin_Register() {/function __construct() {/g' "/srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/plugin-register.class.php"
+	fi
+	if [[ -f /srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/demodata.php ]]; then
+		sed -i -e 's/\$register->Plugin_Register();//g' "/srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/demodata.php"
+	fi
+	wp plugin activate demo-data-creator --allow-root
+
 	wp plugin install developer --allow-root
 	wp plugin install kint-debugger --allow-root
-	wp plugin install log-deprecated-notices  --activate --allow-root
+
+	wp plugin install log-deprecated-notices --allow-root
+	# Fix PHP4 constructor in the Log Deprecated Notices plugin.
+	echo "Removing errors from the Log Deprecated Notices plugin."
+	if [[ -f /srv/www/wp-plugin-dev/htdocs/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php ]]; then
+		sed -i -e 's/function Deprecated_Log() {/function __construct() {/g' "/srv/www/wp-plugin-dev/htdocs/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php"
+	fi
+	wp plugin activate log-deprecated-notices --allow-root
+
 	wp plugin install log-viewer  --activate --allow-root
 	wp plugin install p3-profiler --allow-root
 	wp plugin install piglatin --allow-root
@@ -171,10 +190,34 @@ else
 		# DON'T update the git repos from WP.org!
 		wp plugin update --all --allow-root
 
+		# Update Themes from WP.org
+		printf "Updating themes which need updating from WP.org...\n"
+		wp theme update --all --allow-root
+
 	fi
 
 	cd ..
 
+fi
+
+
+# =============================================================================
+# Removing Errors
+# =============================================================================
+
+# Fix PHP4 constructor in the Demo Data Creator plugin.
+echo "Removing errors from the Demo Data Creator plugin."
+if [[ -f /srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/plugin-register.class.php ]]; then
+	sed -i -e 's/function Plugin_Register() {/function __construct() {/g' "/srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/plugin-register.class.php"
+fi
+if [[ -f /srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/demodata.php ]]; then
+	sed -i -e 's/\$register->Plugin_Register();//g' "/srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/demodata.php"
+fi
+
+# Fix PHP4 constructor in the Log Deprecated Notices plugin.
+echo "Removing errors from the Log Deprecated Notices plugin."
+if [[ -f /srv/www/wp-plugin-dev/htdocs/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php ]]; then
+	sed -i -e 's/function Deprecated_Log() {/function __construct() {/' "/srv/www/wp-plugin-dev/htdocs/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php"
 fi
 
 printf "Finished Setup for WP Plugin Tutorial!\n"
