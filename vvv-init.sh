@@ -78,11 +78,11 @@ PHP
 	wp plugin install demo-data-creator --allow-root
 	# Fix PHP4 constructor in the Demo Data Creator plugin.
 	echo "Removing errors from the Demo Data Creator plugin."
-	if [[ -f /srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/plugin-register.class.php ]]; then
-		sed -i -e 's/function Plugin_Register() {/function __construct() {/g' "/srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/plugin-register.class.php"
+	if [[ -f /srv/www/wp-tutorial/htdocs/wp-content/plugins/demo-data-creator/plugin-register.class.php ]]; then
+		sed -i -e 's/function Plugin_Register() {/function __construct() {/g' "/srv/www/wp-tutorial/htdocs/wp-content/plugins/demo-data-creator/plugin-register.class.php"
 	fi
-	if [[ -f /srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/demodata.php ]]; then
-		sed -i -e 's/\$register->Plugin_Register();//g' "/srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/demodata.php"
+	if [[ -f /srv/www/wp-tutorial/htdocs/wp-content/plugins/demo-data-creator/demodata.php ]]; then
+		sed -i -e 's/\$register->Plugin_Register();//g' "/srv/www/wp-tutorial/htdocs/wp-content/plugins/demo-data-creator/demodata.php"
 	fi
 	wp plugin activate demo-data-creator --allow-root
 
@@ -92,8 +92,8 @@ PHP
 	wp plugin install log-deprecated-notices --allow-root
 	# Fix PHP4 constructor in the Log Deprecated Notices plugin.
 	echo "Removing errors from the Log Deprecated Notices plugin."
-	if [[ -f /srv/www/wp-plugin-dev/htdocs/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php ]]; then
-		sed -i -e 's/function Deprecated_Log() {/function __construct() {/g' "/srv/www/wp-plugin-dev/htdocs/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php"
+	if [[ -f /srv/www/wp-tutorial/htdocs/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php ]]; then
+		sed -i -e 's/function Deprecated_Log() {/function __construct() {/g' "/srv/www/wp-tutorial/htdocs/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php"
 	fi
 	wp plugin activate log-deprecated-notices --allow-root
 
@@ -207,17 +207,17 @@ fi
 
 # Fix PHP4 constructor in the Demo Data Creator plugin.
 echo "Removing errors from the Demo Data Creator plugin."
-if [[ -f /srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/plugin-register.class.php ]]; then
-	sed -i -e 's/function Plugin_Register() {/function __construct() {/g' "/srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/plugin-register.class.php"
+if [[ -f /srv/www/wp-tutorial/htdocs/wp-content/plugins/demo-data-creator/plugin-register.class.php ]]; then
+	sed -i -e 's/function Plugin_Register() {/function __construct() {/g' "/srv/www/wp-tutorial/htdocs/wp-content/plugins/demo-data-creator/plugin-register.class.php"
 fi
-if [[ -f /srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/demodata.php ]]; then
-	sed -i -e 's/\$register->Plugin_Register();//g' "/srv/www/wp-plugin-dev/htdocs/wp-content/plugins/demo-data-creator/demodata.php"
+if [[ -f /srv/www/wp-tutorial/htdocs/wp-content/plugins/demo-data-creator/demodata.php ]]; then
+	sed -i -e 's/\$register->Plugin_Register();//g' "/srv/www/wp-tutorial/htdocs/wp-content/plugins/demo-data-creator/demodata.php"
 fi
 
 # Fix PHP4 constructor in the Log Deprecated Notices plugin.
 echo "Removing errors from the Log Deprecated Notices plugin."
-if [[ -f /srv/www/wp-plugin-dev/htdocs/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php ]]; then
-	sed -i -e 's/function Deprecated_Log() {/function __construct() {/' "/srv/www/wp-plugin-dev/htdocs/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php"
+if [[ -f /srv/www/wp-tutorial/htdocs/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php ]]; then
+	sed -i -e 's/function Deprecated_Log() {/function __construct() {/' "/srv/www/wp-tutorial/htdocs/wp-content/plugins/log-deprecated-notices/log-deprecated-notices.php"
 fi
 
 printf "Finished Setup for WP Plugin Tutorial!\n"
