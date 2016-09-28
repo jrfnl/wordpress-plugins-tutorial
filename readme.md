@@ -5,18 +5,18 @@ This is an [auto-site setup](https://github.com/Varying-Vagrant-Vagrants/VVV/wik
 ## To get started:
 
 1. Setup [Varying Vagrant Vagrants](https://github.com/Varying-Vagrant-Vagrants/VVV) (If you don't already have it)
-2. Clone this repo into the www directory of your Vagrant as www/wp-plugin-dev
+2. Clone this repo into the www directory of your Vagrant as www/wp-tutorial
 3. Update to a [release tag](https://github.com/jrfnl/wordpress-plugins-tutorial/releases) to keep stable
 4. If your Vagrant is running, from the Vagrant directory run `vagrant halt`
 5. Followed by `vagrant up --provision`.
 
 Perhaps a cup of tea or coffee now? The provisioning may take a while.
 
-Then you can visit [http://wpplugin.dev/](http://wpplugin.dev/) to start developing plugins.
+Then you can visit [http://wptutorial.dev/](http://wptutorial.dev/) to start developing plugins.
 
 ## To start over (clean development environment):
 
-You can do it the soft way using (I know it's long, Text Expander?) `vagrant ssh -c 'cd /home/vagrant/www/wp-plugin-dev/ && rm -Rf htdocs/ && sh vvv-init.sh'`. Or, you can do it the hard way `vagrant reload --provision` and get a cup of coffee.
+You can do it the soft way using (I know it's long, Text Expander?) `vagrant ssh -c 'cd /home/vagrant/www/wp-tutorial/ && rm -Rf htdocs/ && sh vvv-init.sh'`. Or, you can do it the hard way `vagrant reload --provision` and get a cup of coffee.
 
 ## Dependencies
 
@@ -28,14 +28,15 @@ You can do it the soft way using (I know it's long, Text Expander?) `vagrant ssh
 - Installs WordPress
 - Installs a bunch of developer plugins
 - Installs a best practice example plugin
+- Installs some plugins which can benefit from some loving care
 
 ## Credentials and Such
 
-### WP Plugin dev environment
+### WP Tutorial
 
 * Username: `admin`
 * Password: `password`
-* Login: [login](http://wpplugin.dev/wp-admin)
+* Login: [login](http://wptutorial.dev/wp-admin)
 
 ### MySQL Root
 
@@ -49,7 +50,6 @@ _________________________
 
 ## 1.1
 
-- Removed the tutorial specifics to make this a more generic plugin development VVV. The tutorial specific version(s) will be maintained in a dedicated branch in this repository.
 - Added a number of extra dev plugins.
 - Fixed PHP 7 compatibility for two dev plugins.
 - Fixed database restore issues.
